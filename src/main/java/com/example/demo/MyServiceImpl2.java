@@ -29,6 +29,9 @@ public class MyServiceImpl2 implements MyService2 {
     //    @Transactional(propagation = Propagation.NESTED)
     @Override
     public void undoLog() {
+
+        undoLogMapper.selectByPrimaryKey(15L);
+
         UndoLog undoLog = new UndoLog();
         undoLog.setBranchId(155L);
         undoLog.setExt("aaaaaaaa");

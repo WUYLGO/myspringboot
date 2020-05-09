@@ -101,7 +101,7 @@ public class MyServiceImpl implements MyService {
 //        myServiceImpl.insert2();
 
 
-        ((MyServiceImpl) AopContext.currentProxy()).insert2();
+        ((MyService) AopContext.currentProxy()).insert2();
 
 
 //        this.insert2();
