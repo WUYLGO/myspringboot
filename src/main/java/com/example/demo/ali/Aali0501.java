@@ -14,11 +14,11 @@ import java.util.stream.Collectors;
  * @date: 2020/5/1
  */
 public class Aali0501 {
-
+    static ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10, 10, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
 
     public static Map<String, List<String>> getTopPickTimeOrderNos4Shop(List<String> orderNos, int n) {
 
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10, 10, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
+
         List<OrderDetail> details = new ArrayList<>();
         for (int i = 0; i < 10000; i = i + 1000) {
             List<String> tempNos = new ArrayList<>();

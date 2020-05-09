@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.mybatis;
 
 import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.parser.CCJSqlParserUtil;
