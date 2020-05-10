@@ -1,8 +1,5 @@
 package com.example.demo.mybatis;
 
-import net.sf.jsqlparser.JSQLParserException;
-import net.sf.jsqlparser.parser.CCJSqlParserUtil;
-import net.sf.jsqlparser.statement.Statement;
 import org.apache.ibatis.logging.Log;
 
 public class mysqlOutPut implements Log {
