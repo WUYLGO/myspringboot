@@ -29,7 +29,7 @@ public class MyServiceImpl2 implements MyService2 {
     //    @Transactional(propagation = Propagation.NESTED)
     @Override
     public void undoLog() {
-
+        //表名
         List<UndoLog> aaaaaa = undoLogMapper.selectByXid("undo_log", "aaaaaa");
 
         undoLogMapper.selectByPrimaryKey(15L);
