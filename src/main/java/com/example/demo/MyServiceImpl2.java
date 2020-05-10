@@ -29,6 +29,11 @@ public class MyServiceImpl2 implements MyService2 {
     //    @Transactional(propagation = Propagation.NESTED)
     @Override
     public void undoLog() {
+
+        List<UndoLog> aaaaaa = undoLogMapper.selectByXid("undo_log", "aaaaaa");
+
+        undoLogMapper.selectByPrimaryKey(15L);
+
         UndoLog undoLog = new UndoLog();
         undoLog.setBranchId(155L);
         undoLog.setExt("aaaaaaaa");
@@ -38,6 +43,9 @@ public class MyServiceImpl2 implements MyService2 {
         undoLog.setRollbackInfo("aaaaa".getBytes());
         undoLog.setXid("aaaaaaaaaa");
         undoLogMapper.insert(undoLog);
+
+        // useGeneratedKeys="true" keyProperty="id"==>增加这个配置可以获得刚插入数据的id值,只适用mysql自增主键;
+        System.out.println("undoLog: id====>" + undoLog.getId());
 
         myService.insert();
 
