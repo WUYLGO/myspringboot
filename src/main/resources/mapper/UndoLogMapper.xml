@@ -15,10 +15,10 @@
     delete from undo_log
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.example.demo.model.UndoLog" >
-    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insert" parameterType="com.example.demo.model.UndoLog" useGeneratedKeys="true" keyProperty="id">
+    <!--<selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >-->
+      <!--SELECT LAST_INSERT_ID()-->
+    <!--</selectKey>-->
     insert into undo_log (branch_id, xid, log_status, 
       log_created, log_modified, ext, 
       rollback_info)
