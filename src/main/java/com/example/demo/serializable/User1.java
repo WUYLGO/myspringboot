@@ -3,6 +3,7 @@ package com.example.demo.serializable;
 import java.io.Serializable;
 
 public class User1 implements Serializable {
+    static final long serialVersionUID = 42L;
 
     private String name;
     private int age;
