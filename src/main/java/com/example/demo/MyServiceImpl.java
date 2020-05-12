@@ -101,7 +101,7 @@ public class MyServiceImpl implements MyService {
 //        myServiceImpl.insert2();
 
 
-        ((MyServiceImpl) AopContext.currentProxy()).insert2();
+        ((MyService) AopContext.currentProxy()).insert2();
 
 
 //        this.insert2();
@@ -116,6 +116,12 @@ public class MyServiceImpl implements MyService {
     public void insert2() {
         OrderTbl orderTbl2 = new OrderTbl();
         orderTbl2.setUserId("CCCCCCCCCCCC");
+        orderTbl2.setCommodityCode("GGGGGGGG");
+        orderTbl2.setCount(10);
+        orderTbl2.setMoney(100);
+        orderTbl2.setRank(50);
+        orderTbl2.setSort(60);
+        orderTbl2.setAddr("中国深圳");
         orderTblMapper.insert(orderTbl2);
 
 //        int c = 1 / 0;

@@ -24,7 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 @Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})})
 public class FullSQLInterceptor implements Interceptor {
     private static final Logger LOGGER = LoggerFactory.getLogger(FullSQLInterceptor.class);
