@@ -104,7 +104,6 @@ public class MyServiceImpl implements MyService {
 //        orderTbl.setUserId("bbbbbbbbbbbb");
 //        orderTblMapper.insert(orderTbl);
 
-
 //        MyServiceImpl myServiceImpl = (MyServiceImpl) applicationContext.getBean("myServiceImpl");
 //        myServiceImpl.insert2();
 
@@ -112,11 +111,8 @@ public class MyServiceImpl implements MyService {
             ((MyService) AopContext.currentProxy()).insert2();
         }
 
-
 //        this.insert2();
-
 //        myServiceImpl2.undoLog();
-
 //        int c = 1 / 0;
     }
 
