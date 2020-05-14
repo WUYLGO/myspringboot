@@ -20,11 +20,11 @@
                         password="${spring.datasource.password}">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.example.demo.model" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="com.wyl.research.model" targetProject="src/main/java"/>
 
         <sqlMapGenerator targetPackage="mybatis/mapper" targetProject="src/main/resources"/>
 
-        <javaClientGenerator targetPackage="com.example.demo.mapper" targetProject="src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="com.wyl.research.mapper" targetProject="src/main/java" type="XMLMAPPER">
         </javaClientGenerator>
 
         <table tableName="%">
