@@ -18,6 +18,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.concurrent.locks.ReentrantLock;
 
 @Service
 public class MyServiceImpl2 implements MyService2 {
@@ -102,6 +103,9 @@ public class MyServiceImpl2 implements MyService2 {
         parseSql(originalSql, parameters);
 
         System.out.println(String.format("hello %s", "world"));
+
+        ReentrantLock reentrantLock = new ReentrantLock();
+        reentrantLock.tryLock();
 
     }
 
