@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
@@ -25,7 +26,17 @@ public class MyServiceImpl implements MyService {
     private OrderTblMapper orderTblMapper;
 
     public MyServiceImpl() {
-        System.out.println("..........");
+        System.out.println("===>MyServiceImpl的构造方法被执行...");
+    }
+
+    /**
+    * @Description: //TODO
+    * @Date: 2020/5/14 17:44
+    * @Idea: @PostConstruct是在依赖注入完成之后执行,也就是bean初始化赋值完成,并且后置处理器完成之后才调用;
+    */
+    @PostConstruct
+    public void init() {
+        System.out.println("===>init方法执行了....");
     }
 
 
@@ -97,7 +108,7 @@ public class MyServiceImpl implements MyService {
 //        MyServiceImpl myServiceImpl = (MyServiceImpl) applicationContext.getBean("myServiceImpl");
 //        myServiceImpl.insert2();
 
-        for(int i=0;i<10000;i++){
+        for (int i = 0; i < 10000; i++) {
             ((MyService) AopContext.currentProxy()).insert2();
         }
 
@@ -108,7 +119,9 @@ public class MyServiceImpl implements MyService {
 
 //        int c = 1 / 0;
     }
+
     final Random random = new Random(25);
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void insert2() {
