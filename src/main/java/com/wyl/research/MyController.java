@@ -67,7 +67,7 @@ public class MyController {
 
     @RequestMapping("/test/exception")
     public String testException(HttpServletRequest request, HttpServletResponse response) {
-        int i = 1 / 0;
+//        int i = 1 / 0;
 
         return "success";
 
