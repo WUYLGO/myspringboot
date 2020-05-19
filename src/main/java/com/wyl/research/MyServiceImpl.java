@@ -17,7 +17,8 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-@Service
+@Service(value = "myServiceImpl")
+//@Service
 public class MyServiceImpl implements MyService {
     @Autowired
     private AnsyTest ansyTest;
@@ -30,10 +31,10 @@ public class MyServiceImpl implements MyService {
     }
 
     /**
-    * @Description: //TODO
-    * @Date: 2020/5/14 17:44
-    * @Idea: @PostConstruct是在依赖注入完成之后执行,也就是bean初始化赋值完成,并且后置处理器完成之后才调用;
-    */
+     * @Description: //TODO
+     * @Date: 2020/5/14 17:44
+     * @Idea: @PostConstruct是在依赖注入完成之后执行,也就是bean初始化赋值完成,并且后置处理器完成之后才调用;
+     */
     @PostConstruct
     public void init() {
         System.out.println("===>init方法执行了....");

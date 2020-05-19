@@ -3,8 +3,10 @@ package com.wyl.research;
 import com.alibaba.fastjson.JSON;
 import com.wyl.research.model.OrderTbl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -16,7 +18,17 @@ import java.net.URLEncoder;
 
 @RestController
 public class MyController {
+
+    /**
+     * @Description: 依赖注入
+     * @Date: 2020/5/19 16:21
+     * @Idea: @Autowired根据类型注入,因此当一个接口有多个实现类的时候无法注入成功;
+     * @Resource(name = "myServiceImplCopy") :首先根据名称注入,名称找不到根据类型进行注入(对象名称注入),名称标注在各个实现类的@Component(value="aaaa")里面
+     * @Qualifier("MyServiceImplCopy") 根据名称注入, 但是是根据类名注入;
+     */
     @Autowired
+//    @Resource(name = "myServiceImplCopy")
+//    @Qualifier("MyServiceImplCopy")
     private MyService myService;
 
     @Autowired

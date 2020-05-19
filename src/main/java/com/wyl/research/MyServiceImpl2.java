@@ -16,8 +16,8 @@ public class MyServiceImpl2 implements MyService2 {
     @Autowired
     private UndoLogMapper undoLogMapper;
 
-    @Autowired
-    private MyService myService;
+//    @Autowired
+//    private MyService myService;
 
 
     //    @Transactional(propagation = Propagation.NESTED)
@@ -41,7 +41,7 @@ public class MyServiceImpl2 implements MyService2 {
         // useGeneratedKeys="true" keyProperty="id"==>增加这个配置可以获得刚插入数据的id值,只适用mysql自增主键;
         System.out.println("undoLog: id====>" + undoLog.getId());
 
-        myService.insert();
+//        myService.insert();
 
 //        UndoLog undoLog2 = new UndoLog();
 //        undoLog2.setBranchId(155L);
