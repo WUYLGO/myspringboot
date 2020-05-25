@@ -2,19 +2,19 @@ package com.wyl.research;
 
 import com.alibaba.fastjson.JSON;
 import com.wyl.research.model.OrderTbl;
+import com.wyl.research.validUser.Result;
+import com.wyl.research.validUser.User;
+import com.wyl.research.validUser.ValidAnno;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.beans.Encoder;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 
 @RestController
 public class MyController {
@@ -68,8 +68,18 @@ public class MyController {
     @RequestMapping("/test/exception")
     public String testException(HttpServletRequest request, HttpServletResponse response) {
 //        int i = 1 / 0;
-
         return "success";
+
+    }
+
+
+    //http://localhost:8888/test/user
+    @ValidAnno
+    @RequestMapping("/test/user")
+    public Result testUser(User user) {
+        System.out.println(JSON.toJSONString(user));
+//        throw new RuntimeException("aaaaaaaa") ;
+        return new Result();
 
     }
 
