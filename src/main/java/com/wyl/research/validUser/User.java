@@ -9,7 +9,7 @@ import lombok.Data;
  */
 @Data
 public class User {
-    @NotNull
+    @NotNull(value = "用户名不能为空")
     private String userName;
     private String password;
 
