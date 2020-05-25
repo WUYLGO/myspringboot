@@ -15,11 +15,10 @@ idea的配置:
 
 6.修改git配置;
 
-7.设置代码模板:
 
-8.设置Edit==>General==>Code Completion全勾;
+7.设置Edit==>General==>Code Completion全勾;
 
-9.设置File and Code Templates==>设置代码模板:注意打勾生效;
+8.设置File and Code Templates==>设置代码模板:注意打勾生效;
 /**
  * @Description: TODO
  * @auther: wuyunlong
@@ -28,7 +27,7 @@ idea的配置:
 public class ${NAME} {
 }
 
-10.设置Live Templates==>
+9.设置Live Templates==>
 **
 * @Description: //TODO $end$
 * @Date: $date$ $time$
@@ -37,18 +36,18 @@ public class ${NAME} {
 编辑变量:date(),time();
 设置快捷键为w,之后按/w即可快速选择;
 
-11.注意设置Plugins里面的Auto-detect proxy settings打勾;
+10.注意设置Plugins里面的Auto-detect proxy settings打勾;
 
-12.安装lombok,注意配置项目anno打勾,注意项目引入lombok依赖:
+11.安装lombok,注意配置项目anno打勾,注意项目引入lombok依赖:
 <dependency>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok</artifactId>
     <version>1.16.10</version>
 </dependency>
 
-13.安装mybatisCoderHelper;
+12.安装mybatisCoderHelper;
 
-14.安装热部署插件:Jrbel;注意激活方式;
+13.安装热部署插件:Jrbel;注意激活方式;
 https://www.2loveyou.com/articles/2020/01/09/1578533228431.html
 https://www.guidgen.com/
 https://jrebel.qekang.com/738b776f-6cc9-4ac5-9574-960a057392db
