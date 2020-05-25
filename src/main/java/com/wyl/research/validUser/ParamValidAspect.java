@@ -49,12 +49,12 @@ public class ParamValidAspect {
                     }
 
                     if (o == null) {
-//                        throw new BusinessException(ResponseEnum.USER_NAME_ISNULL);
-                        throw new RuntimeException("用户名不能为空...");
+                        throw new BusinessException(ResponseEnum.USER_NAME_ISNULL);
+//                        throw new RuntimeException("用户名不能为空...");
                     }
                     if (String.valueOf(o).length() < 5) {
-//                        throw new BusinessException(ResponseEnum.USER_NAME_ISNULL);
-                        throw new RuntimeException("用户名长度不能小于5...");
+                        throw new BusinessException(ResponseEnum.USER_NAME_ISVALID);
+//                        throw new RuntimeException("用户名长度不能小于5...");
                     }
 
                 }
