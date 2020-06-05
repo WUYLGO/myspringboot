@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 public class InitBean implements InitializingBean {
 
     @PostConstruct
-    public void testPostConstract(){
+    public void testPostConstract() {
         System.out.println("testPostConstract===>");
     }
 

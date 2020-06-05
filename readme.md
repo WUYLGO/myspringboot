@@ -16,7 +16,7 @@ idea的配置:
 6.修改git配置;
 
 
-7.设置Edit==>General==>Code Completion全勾;
+7.设置Edit==>General==>Code Completion除了Basic,Smart按键之外全勾;
 
 8.设置File and Code Templates==>设置代码模板:注意打勾生效;
 /**
