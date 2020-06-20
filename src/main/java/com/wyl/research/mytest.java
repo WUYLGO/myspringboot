@@ -49,6 +49,7 @@ public class mytest {
         User user2 = gson.fromJson(jsonStr, User.class);
         System.out.println(user2);
 
+
     }
 
 }

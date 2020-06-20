@@ -15,4 +15,16 @@ public class User {
 
     private int age;
 
+    private double salary;
+
+
+    public User() {
+    }
+
+    public User(String userName, int age, double salary) {
+        this.userName = userName;
+        this.age = age;
+        this.salary = salary;
+    }
+
 }
