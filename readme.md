@@ -1,6 +1,8 @@
 git config --global --unset http.proxy
 
 
+mybatis json 互转
+https://blog.csdn.net/u013246459/article/details/86082450
 
 idea的配置:
 1.快捷键换为eclipse;

@@ -3,7 +3,7 @@
 <mapper namespace="com.temp.research.mapper.StudentMapper" >
   <resultMap id="BaseResultMap" type="com.temp.research.model.Student" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" typeHandler="" />
     <result column="age" property="age" jdbcType="INTEGER" />
     <result column="sex" property="sex" jdbcType="VARCHAR" />
     <result column="created_date" property="createdDate" jdbcType="BIGINT" />

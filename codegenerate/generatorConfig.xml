@@ -26,7 +26,11 @@
                         password="${spring.datasource.password}">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.temp.research.model" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="com.temp.research.model" targetProject="src/main/java">
+
+            <!-- 从数据库返回的值被清理前后的空格  -->
+            <property name="trimStrings" value="true"></property>
+        </javaModelGenerator>
 
         <sqlMapGenerator targetPackage="mybatis/mapper" targetProject="src/main/resources"/>
 
