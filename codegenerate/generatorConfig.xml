@@ -7,7 +7,13 @@
     <!-- 引入SpringBoot配置文件 -->
     <properties resource="application.properties"/>
 
-    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+    <context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!--支持序列化-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+
 
         <commentGenerator>
             <property name="suppressDate" value="true"/>
@@ -20,14 +26,19 @@
                         password="${spring.datasource.password}">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.wyl.research.model" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="com.temp.research.model" targetProject="src/main/java"/>
 
         <sqlMapGenerator targetPackage="mybatis/mapper" targetProject="src/main/resources"/>
 
-        <javaClientGenerator targetPackage="com.wyl.research.mapper" targetProject="src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="com.temp.research.mapper" targetProject="src/main/java" type="XMLMAPPER">
         </javaClientGenerator>
 
-        <table tableName="%">
+        <table schema="" tableName="%"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
             <!--mysql 配置-->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
             <!--oracle 配置-->

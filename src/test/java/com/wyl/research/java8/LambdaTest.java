@@ -4,6 +4,10 @@ import com.wyl.research.validUser.User;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.LongStream;
 
 /**
  * @Description: TODO
@@ -85,6 +89,56 @@ public class LambdaTest {
         users.stream()
                 .map(User::getUserName)
                 .forEach(userName -> System.out.println(userName));
+
+    }
+
+    @Test
+    public void testNoArgumentsAndResults() {
+        int num = 0;
+        Runnable r1 = () -> System.out.println("hello world" + num);
+        r1.run();
+    }
+
+    @Test
+    public void testHasArgumentsAndNoResults() {
+        Consumer<String> consumer = (x) -> System.out.println(x);
+        consumer.accept("hello world");
+    }
+
+
+    @Test
+    public void test2ArgumentsAndHasResults() {
+        Comparator<Integer> comparator = (x, y) -> {
+            System.out.println("aaa");
+            return x.compareTo(y);
+        };
+    }
+
+
+    @Test
+    public void testLambdReference() {
+        User user = new User("张三", 18, 1000);
+
+        Supplier<String> supplier = () -> user.getUserName();
+        String s = supplier.get();
+        System.out.println(s);
+
+        user.setAge(20);
+
+        Supplier<Integer> supplier1 = user::getAge;
+        Integer integer = supplier1.get();
+        System.out.println(integer);
+
+        Optional<Integer> reduce = users.stream().map(t -> 1).reduce((x, y) -> x + y);
+        reduce.get();
+
+        users.stream().collect(Collectors.groupingBy(x -> x.getUserName()));
+        Map<String, List<User>> collect = users.stream().collect(Collectors.groupingBy(User::getUserName));
+
+        Collectors.joining("", "", "");
+
+        LongStream.rangeClosed(0, 100000).parallel().reduce((x, y) -> x + y);
+        LongStream.rangeClosed(0, 100000).parallel().reduce(0, Long::sum);
 
     }
 

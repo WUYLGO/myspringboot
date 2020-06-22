@@ -7,4 +7,5 @@ package com.wyl.research.java8;
  */
 public interface FilterRule<T> {
     boolean filter(T t);
+
 }

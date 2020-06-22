@@ -12,4 +12,5 @@ public class FilterEmployeeBySalary implements FilterRule<User> {
     public boolean filter(User user) {
         return user.getSalary() > 7000;
     }
+
 }

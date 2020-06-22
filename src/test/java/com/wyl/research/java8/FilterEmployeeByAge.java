@@ -12,4 +12,5 @@ public class FilterEmployeeByAge implements FilterRule<User> {
     public boolean filter(User user) {
         return user.getAge() >= 35;
     }
+
 }
