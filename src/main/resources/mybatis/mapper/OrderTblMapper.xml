@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.temp.research.mapper.OrderTblMapper" >
+  <resultMap id="BaseResultMap" type="com.temp.research.model.OrderTbl" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="commodity_code" property="commodityCode" jdbcType="VARCHAR" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="INTEGER" />
+    <result column="rank" property="rank" jdbcType="INTEGER" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="addr" property="addr" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, commodity_code, count, money, rank, sort, addr
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from order_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from order_tbl
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.temp.research.model.OrderTbl" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into order_tbl (user_id, commodity_code, count, 
+      money, rank, sort, 
+      addr)
+    values (#{userId,jdbcType=VARCHAR}, #{commodityCode,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, 
+      #{money,jdbcType=INTEGER}, #{rank,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, 
+      #{addr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.temp.research.model.OrderTbl" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into order_tbl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="commodityCode != null" >
+        commodity_code,
+      </if>
+      <if test="count != null" >
+        count,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="rank != null" >
+        rank,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="addr != null" >
+        addr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityCode != null" >
+        #{commodityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=INTEGER},
+      </if>
+      <if test="rank != null" >
+        #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="addr != null" >
+        #{addr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.temp.research.model.OrderTbl" >
+    update order_tbl
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityCode != null" >
+        commodity_code = #{commodityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=INTEGER},
+      </if>
+      <if test="rank != null" >
+        rank = #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="addr != null" >
+        addr = #{addr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.temp.research.model.OrderTbl" >
+    update order_tbl
+    set user_id = #{userId,jdbcType=VARCHAR},
+      commodity_code = #{commodityCode,jdbcType=VARCHAR},
+      count = #{count,jdbcType=INTEGER},
+      money = #{money,jdbcType=INTEGER},
+      rank = #{rank,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      addr = #{addr,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
